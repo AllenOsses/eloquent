@@ -11,7 +11,7 @@
 |
 */
 use App\Post;
-
+/*s
 Route::get('eloquent', function () {
     $posts = Post::where('id','>=','20')
     ->orderBy('id','desc')
@@ -20,7 +20,7 @@ Route::get('eloquent', function () {
     foreach($posts as $post){
         echo "$post->id $post->title <br>";
     }
-});
+});*/
 
 Route::get('posts', function () {
     $posts = Post::get();
