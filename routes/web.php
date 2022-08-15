@@ -11,7 +11,7 @@
 |
 */
 use App\Post;
-/*s
+/*s 
 Route::get('eloquent', function () {
     $posts = Post::where('id','>=','20')
     ->orderBy('id','desc')
@@ -22,12 +22,14 @@ Route::get('eloquent', function () {
     }
 });*/
 
-Route::get('posts', function () {
-    $posts = Post::get();
-    foreach ($posts as $post){
+ use App\User;
+
+Route::get('users', function () {
+    $users = User::all();
+    foreach ($users as $user){
         echo " 
-        $post->id
-        <strong>{$post->user->name}</strong>
-        $post->title <br>";
+        $user->id
+        <strong>$user->name</strong>
+        {$user->posts->count()} posts <br>";
     }
 });
