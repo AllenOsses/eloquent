@@ -40,4 +40,12 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    public function getGetNameAttribute(){
+        return strtoupper($this->name);
+    }
+
+    public function setNameAttribute($value){
+        $this->attributes['name']= strtolower($value);
+    }
 }
